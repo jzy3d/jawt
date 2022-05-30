@@ -20,9 +20,18 @@ public class MyCanvas extends Canvas {
     String javaLibPathKey = "java.library.path";
     String javaLibraryPath = System.getProperty(javaLibPathKey);
     System.out.println(javaLibraryPath);
-    //System.loadLibrary("MyCanvas");
-    File f = new File("./lib/libMyCanvas.so");
+    
+    OperatingSystem os = new OperatingSystem();
+    
+    File f = null;
+    if(os.isUnix()) {
+      f = new File("./lib/libMyCanvas.so");
+    }
+    else if(os.isWindows()) {
+      f = new File("./lib/MyCanvas.dll");
+    }
     System.load(f.getAbsolutePath());
+
   }
 
   public native void paint(Graphics g);
