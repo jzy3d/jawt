@@ -17,12 +17,14 @@ rm -rf target/*
 
 ### Compile
 gcc -I"C:\Program Files\Zulu\zulu-17\include" -I"C:\Program Files\Zulu\zulu-17\include\win32" -c src/main/c/win32/MyCanvas.c -o target/MyCanvas.o
-  #-v \
+
+# not working yet (Direct2D)
+gcc -I"C:\Program Files\Zulu\zulu-17\include" -I"C:\Program Files\Zulu\zulu-17\include\win32" -I"C:\Program Files (x86)\Windows Kits\10\Include\10.0.19041.0\um\"  -c src/main/c/win32/MyCanvas.c -o target/MyCanvas.o
+
 
 
 ### Link to create a lib
 gcc target/MyCanvas.o -L"C:\Program Files\Zulu\zulu-17\lib" -L"C:\Program Files\Zulu\zulu-17\lib\server" -ljawt -ljvm -shared -o target/MyCanvas.dll
-# -v \
 
 
 cp target/MyCanvas.dll lib/MyCanvas.dll
