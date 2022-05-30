@@ -30,8 +30,11 @@ public class MyCanvas extends Canvas {
     else if(os.isWindows()) {
       f = new File("./lib/MyCanvas.dll");
     }
-    System.load(f.getAbsolutePath());
-
+    
+    if(f!=null)
+      System.load(f.getAbsolutePath());
+    else
+      System.err.println("Unsupported " + os);
   }
 
   public native void paint(Graphics g);
