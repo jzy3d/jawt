@@ -1,4 +1,4 @@
-//#include "MyCanvas.h"
+#include "MyCanvas.h"
 #include "jawt_md.h"
 
 /*
